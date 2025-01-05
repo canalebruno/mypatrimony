@@ -32,7 +32,7 @@ export async function GET() {
     const session = await auth()
 
     try {
-        const allRecords = await Record.find({user: session?.user?.email})
+        const allRecords = await Record.find({user: session?.user?.email}).sort({bank:1})
 
         return NextResponse.json({success: true, data:allRecords})
     } catch (error) {

@@ -10,13 +10,15 @@
   justify-items: center;
   padding: 2rem 1rem;
   min-width: 100svw;
+  max-width: calc(100vw - 2rem);
   min-height: 100svh;
   font-family: var(--font-geist-sans);
 }
 
 .main {
   display: flex;
-  min-width: 500px;
+  width: 500px;
+  max-width: calc(100vw - 2rem);
   flex-direction: column;
   gap: 0.5rem;
 }
