@@ -8,15 +8,12 @@ import RecordCard from "../RecordCard";
 import { usePatrimony } from "@/hooks/usePatrimony";
 import YearlyGraphic from "../YearlyGraphic";
 import { useController } from "@/hooks/useController";
-import { useSession } from "next-auth/react";
 
 export default function Dashboard() {
   const { allRecords, selectedMonth, setSelectedMonth, recordsByMonth } =
     usePatrimony();
 
   const { getBanks, getExchange, getRecords } = useController();
-
-  const session = useSession();
 
   useEffect(() => {
     getRecords();
