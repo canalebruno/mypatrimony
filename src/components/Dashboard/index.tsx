@@ -18,8 +18,6 @@ export default function Dashboard() {
 
   const session = useSession();
 
-  console.log(session);
-
   useEffect(() => {
     getRecords();
     getBanks();

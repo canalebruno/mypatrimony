@@ -18,8 +18,6 @@ function SignOut() {
 const Header = async () => {
   const session = await auth();
 
-  console.log(session);
-
   return (
     <div>
       {session?.user ? (

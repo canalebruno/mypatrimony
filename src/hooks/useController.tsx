@@ -27,7 +27,7 @@ export function ControllerProvider({ children }: ControllerProviderProps) {
   const { setAllBanks, setAllExchange, setAllRecords } = usePatrimony();
 
   async function getRecords() {
-    const response = await fetch(`${process.env.URI}/api/records`, {
+    const response = await fetch(`/api/records`, {
       cache: "no-store",
     });
 
@@ -46,7 +46,7 @@ export function ControllerProvider({ children }: ControllerProviderProps) {
   }
 
   async function getBanks() {
-    const response = await fetch(`${process.env.URI}/api/banks`, {
+    const response = await fetch(`/api/banks`, {
       cache: "no-store",
     });
 
@@ -58,7 +58,7 @@ export function ControllerProvider({ children }: ControllerProviderProps) {
   }
 
   async function getExchange() {
-    const response = await fetch(`${process.env.URI}/api/exchange`, {
+    const response = await fetch(`/api/exchange`, {
       cache: "no-store",
     });
 
@@ -77,7 +77,7 @@ export function ControllerProvider({ children }: ControllerProviderProps) {
   }
 
   async function getRecordById(id: string) {
-    const response = await fetch(`${process.env.URI}/api/records/${id}`, {
+    const response = await fetch(`/api/records/${id}`, {
       cache: "no-store",
     });
 
@@ -90,7 +90,7 @@ export function ControllerProvider({ children }: ControllerProviderProps) {
     id: string,
     updatedRecord: Omit<Record, "_id">
   ) {
-    const response = await fetch(`${process.env.URI}/api/records/${id}`, {
+    const response = await fetch(`/api/records/${id}`, {
       cache: "no-store",
       method: "PUT",
       headers: {
@@ -140,7 +140,7 @@ export function ControllerProvider({ children }: ControllerProviderProps) {
   }
 
   async function deleteById(id: string) {
-    const response = await fetch(`${process.env.URI}api/records/${id}`, {
+    const response = await fetch(`api/records/${id}`, {
       cache: "no-store",
       method: "DELETE",
     });

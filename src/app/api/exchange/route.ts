@@ -15,7 +15,6 @@ export async function POST(request: Request) {
         }
 
         const newRecord = new Exchange({date, value})
-        console.log(newRecord)
 
         await newRecord.save()
         return NextResponse.json({success: true, message: "New record saved."})
