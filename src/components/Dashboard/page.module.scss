@@ -1,0 +1,17 @@
+.controller {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.5rem;
+}
+
+.totalHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.recordsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

@@ -1,13 +1,11 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #050505;
+  --foreground: #fcfcfd;
+  --box-background: #191d20;
+  --highlight: #202427;
+  --selection: #3f474a;
+  --red: #a7403f;
+  --green: #3ea663;
 }
 
 html,
@@ -35,8 +33,9 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+button {
+  color: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
 }

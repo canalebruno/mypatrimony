@@ -1,0 +1,81 @@
+.wrapper {
+  position: relative;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
+  border-radius: 10rem;
+
+  &:hover {
+    background-color: var(--selection);
+    transition: 500ms;
+  }
+}
+
+.containerModal {
+  background-color: var(--box-background);
+  min-width: 400px;
+  z-index: 10;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .currencyDisplay {
+    align-self: flex-end;
+    font-size: 1.7rem;
+  }
+}
+
+.modalWrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  top: -0.25rem;
+  right: 0.5rem;
+  translate: 0% -100%;
+
+  .modalContainer {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: var(--highlight);
+    padding: 0.25rem 0.25rem;
+    border-radius: 0.25rem 0.25rem 0 0.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      border: 1px solid var(--selection);
+      border-radius: 0.25rem;
+      font-size: 0.7rem;
+
+      &:hover {
+        background-color: var(--selection);
+        transition: 500ms;
+      }
+    }
+  }
+
+  .modalSpeach {
+    background-color: var(--highlight);
+    width: 0.7rem;
+    height: 0.5rem;
+    border-radius: 0 0 0.25rem 0.75rem;
+  }
+}

@@ -1,0 +1,24 @@
+.container {
+  background-color: var(--box-background);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .currencyDisplay {
+    align-self: flex-end;
+    font-size: 1.7rem;
+    text-align: right;
+  }
+
+  .totalConverted {
+    font-size: 0.7rem;
+  }
+}

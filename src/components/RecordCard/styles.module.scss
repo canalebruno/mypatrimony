@@ -1,0 +1,25 @@
+.container {
+  background-color: var(--box-background);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  min-width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .description {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    img {
+      border-radius: 25px;
+    }
+  }
+
+  .valueBox {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
