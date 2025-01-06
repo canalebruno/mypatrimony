@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  CompareDates,
-  CurrencyFormat,
-  YearMonthString,
-} from "@/utils/Formatting";
+import { CompareDates, CurrencyFormat } from "@/utils/Formatting";
 import { Record } from "@/utils/Types";
 import styles from "./styles.module.scss";
 import VariationTag from "../VariationTag";

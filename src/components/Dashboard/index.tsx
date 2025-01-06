@@ -8,7 +8,7 @@ import RecordCard from "../RecordCard";
 import { usePatrimony } from "@/hooks/usePatrimony";
 import YearlyGraphic from "../YearlyGraphic";
 import { useController } from "@/hooks/useController";
-import { InputMonthFormat, YearMonthString } from "@/utils/Formatting";
+import { InputMonthFormat } from "@/utils/Formatting";
 
 export default function Dashboard() {
   const { allRecords, selectedMonth, setSelectedMonth, recordsByMonth } =
