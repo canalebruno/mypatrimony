@@ -1,6 +1,10 @@
 "use client";
 
-import { CurrencyFormat, YearMonthString } from "@/utils/Formatting";
+import {
+  CompareDates,
+  CurrencyFormat,
+  YearMonthString,
+} from "@/utils/Formatting";
 import { Record } from "@/utils/Types";
 import styles from "./styles.module.scss";
 import VariationTag from "../VariationTag";
@@ -9,7 +13,7 @@ import { usePatrimony } from "@/hooks/usePatrimony";
 interface CurrencyTotalCardProps {
   currency: string;
   records: Record[];
-  currentMonth: string;
+  currentMonth: Date;
 }
 
 export default function CurrencyTotalCard({
@@ -20,20 +24,20 @@ export default function CurrencyTotalCard({
   const { allExchange } = usePatrimony();
 
   const currentRecords = records.filter((record) => {
-    return YearMonthString(record.date) === currentMonth;
+    return CompareDates(record.date, currentMonth);
   });
 
   const currentMonthExchangeRate = allExchange.find((rate) => {
-    return YearMonthString(rate.date) === currentMonth;
+    return CompareDates(rate.date, currentMonth);
   });
 
   const previousRecords = records
     .filter((record) => {
-      return (
-        YearMonthString(record.date) ===
-        `${currentMonth.split("-")[0]}-${
-          Number(currentMonth.split("-")[1]) - 1
-        }`
+      return CompareDates(
+        record.date,
+        new Date(
+          new Date(currentMonth).setMonth(new Date(currentMonth).getMonth() - 1)
+        )
       );
     })
     .filter((record) => {

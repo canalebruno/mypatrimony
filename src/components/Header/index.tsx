@@ -1,4 +1,4 @@
-import { auth, signOut } from "@/auth";
+import { auth, signOut, signIn } from "@/auth";
 import Link from "next/link";
 
 function SignOut() {

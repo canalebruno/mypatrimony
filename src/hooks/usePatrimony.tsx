@@ -1,6 +1,6 @@
 "use client";
 
-import { YearMonthString } from "@/utils/Formatting";
+import { CompareDates, YearMonthString } from "@/utils/Formatting";
 import { Bank, Exchange, Record } from "@/utils/Types";
 import {
   createContext,
@@ -35,9 +35,7 @@ export function PatrimonyProvider({ children }: PatrimonyProviderProps) {
   const [allBanks, setAllBanks] = useState<Bank[]>([] as Bank[]);
   const [allRecords, setAllRecords] = useState<Record[]>([] as Record[]);
   const [allExchange, setAllExchange] = useState<Exchange[]>([] as Exchange[]);
-  const [selectedMonth, setSelectedMonth] = useState(
-    YearMonthString(new Date(new Date().setMonth(new Date().getMonth() - 1)))
-  );
+  const [selectedMonth, setSelectedMonth] = useState(String(new Date()));
   const [recordsByMonth, setRecordsByMonth] = useState<Record[]>(
     [] as Record[]
   );
@@ -45,7 +43,7 @@ export function PatrimonyProvider({ children }: PatrimonyProviderProps) {
   useEffect(() => {
     setRecordsByMonth(
       allRecords.filter((record) => {
-        return YearMonthString(record.date) === selectedMonth;
+        return CompareDates(record.date, new Date(selectedMonth));
       })
     );
   }, [selectedMonth, allRecords]);

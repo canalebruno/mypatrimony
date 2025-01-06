@@ -7,6 +7,7 @@ import { Exchange, Record } from "@/utils/Types";
 import { useController } from "@/hooks/useController";
 import Modal from "../Modal";
 import { useSession } from "next-auth/react";
+import { InputMonthFormat } from "@/utils/Formatting";
 
 export default function AddNewRecord() {
   const { allBanks } = usePatrimony();
@@ -16,12 +17,7 @@ export default function AddNewRecord() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [bank, setBank] = useState("1");
-  const [date, setDate] = useState(
-    new Intl.DateTimeFormat("fr-CA", {
-      year: "numeric",
-      month: "2-digit",
-    }).format(new Date())
-  );
+  const [date, setDate] = useState(InputMonthFormat(new Date()));
   const [value, setValue] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -81,39 +77,6 @@ export default function AddNewRecord() {
           <button disabled={isSaving}>{isSaving ? "Saving..." : "Add"}</button>
         </form>
       </Modal>
-      {/* {modalIsOpen && (
-        <div className={styles.modalWrapper}>
-          <div
-            className={styles.modalBackground}
-            onClick={() => setModalIsOpen(false)}
-          />
-          <form className={styles.container} onSubmit={(e) => handleSubmit(e)}>
-            Add New Record
-            <select onChange={(e) => setBank(e.target.value)} value={bank}>
-              {allBanks.map((b) => {
-                return (
-                  <option key={b._id} value={b.id}>
-                    {b.name}
-                  </option>
-                );
-              })}
-            </select>
-            <input
-              type="month"
-              onChange={(e) => setDate(e.target.value)}
-              value={date}
-            />
-            <input
-              type="number"
-              onChange={(e) => setValue(e.target.value)}
-              value={value}
-            />
-            <button disabled={isSaving}>
-              {isSaving ? "Saving..." : "Add"}
-            </button>
-          </form>
-        </div>
-      )} */}
     </>
   );
 }
